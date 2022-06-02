@@ -1,0 +1,132 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{void array1(int a[3][3],int x, int y);
+ void array2(int b[3][3],int x, int y);
+ void array1print(int a[3][3],int x, int y);
+ void array2print(int b[3][3],int x, int y);
+ void mul(int a[3][3],int b[3][3],int x, int y);
+ void transpo(int a[3][3],int b[3][3],int x,int y);
+ int a[3][3],b[3][3],c;
+ clrscr();
+ printf("Enter first array:");
+ array1(a,3,3);
+ array1print(a,3,3);
+ printf("Enter second array:");
+ array2(b,3,3);
+ array2print(a,3,3);
+ printf("\n Enter choice \n 1:Multiplication\n 2:Transpose");
+ scanf("%d",&c);
+ switch(c)
+ {
+ case 1: mul(a,b,3,3);
+	break;
+ case 2:transpo(a,b,3,3);
+       break;
+ default:printf("\nInvalid choice");
+   }
+ getch();
+ }
+ void array1(int a[][3],int x,int y)
+ {
+  int i,j;
+	 for(i=0;i<x;i++)
+	  {
+	    for(j=0;j<y;j++)
+	    {
+	      scanf("%d",&a[i][j]);
+		 }
+	      }
+  }
+     void array2(int b[][3],int x,int y)
+     {
+	 int i,j;
+		for(i=0;i<x;i++)
+		{
+		   for(j=0;j<y;j++)
+		   {
+		     scanf("%d",&b[i][j]);
+		     }
+		 }
+      }
+  void array1print(int a[][3],int x,int y)
+ {
+  int i,j;
+	 for(i=0;i<x;i++)
+	  {
+	    for(j=0;j<y;j++)
+	    {
+	      printf("%d  ",a[i][j]);
+		 }
+	      printf("\n");
+	      }
+  }
+     void array2print(int b[][3],int x,int y)
+     {
+	 int i,j;
+		for(i=0;i<x;i++)
+		{
+		   for(j=0;j<y;j++)
+		   {
+		     printf("%d  ",b[i][j]);
+		     }
+		   printf("\n");
+		 }
+      }
+
+  void mul(int a[][3],int b[][3],int x,int y)
+  {
+    int mul[3][3],i,j,k;
+    for(i=0;i<x;i++)
+    {for(j=0;j<y;j++)
+     {mul[i][j]=0;
+      for(k=0;k<y;k++)
+      {
+	mul[i][j]=mul[i][j]+(a[i][k]*b[k][j]);
+       }
+      }
+     }
+    for(i=0;i<x;i++)
+    {for(j=0;j<y;j++)
+       {printf("%d  ",mul[i][j]);
+	 }
+       printf("\n");
+      }
+
+    }
+		void transpo(int a[][3],int b[][3],int x,int y)
+		{
+		 int i,j,temp1[3][3],temp2[3][3];
+		 for(i=0;i<x;i++)
+		  {
+		   for(j=0;j<y;j++)
+		   {
+
+		    {
+		      temp1[i][j]=a[j][i];
+
+
+		      temp2[i][j]=b[j][i];
+
+		      }
+		     }
+		    }
+		    array1print(a,3,3);
+		  for(i=0;i<x;i++)
+		  { for(j=0;j<y;j++)
+		   {
+		    printf("%d  ",temp1[i][j]);
+		    }
+		   printf("\n");
+		   }
+
+		  printf("\n");
+		  array2print(b,3,3);
+		  for(i=0;i<x;i++)
+		  { for(j=0;j<y;j++)
+		   {
+		    printf("%d  ",temp2[i][j]);
+		    }
+		   printf("\n");
+		   }
+		 }
